@@ -30,9 +30,8 @@ def save_events(request):
             id=event['id'],
             defaults={
                 'name': event['name'],
-                # 'start': dt.Date(2018, 10, 1),
+                'org': Organization.objects.get(id=event['org']),
                 'start': event['start'],
-                # 'end': dt.Date(2018, 10, 20)
                 'end': event['end']
             }
         )
