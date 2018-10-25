@@ -7,7 +7,7 @@ class Organization(models.Model):
     color = models.CharField(max_length=20)
     order = models.IntegerField()
 
-    # def __str__():
+    # def __str__():  // todo bugged, not sure why.
     #     return f"{self.name}"
 
 

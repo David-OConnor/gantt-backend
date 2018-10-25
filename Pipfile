@@ -9,6 +9,7 @@ dj-database-url = "*"
 gunicorn = "*"
 djangorestframework = "*"
 "psycopg2-binary" = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 
