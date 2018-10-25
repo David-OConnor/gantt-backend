@@ -7,8 +7,8 @@ class Organization(models.Model):
     color = models.CharField(max_length=20)
     order = models.IntegerField()
 
-    # def __str__():
-    #     return f"{self.name}"
+    def __str__():
+        return f"{self.name}"
 
 
 class Event(models.Model):
