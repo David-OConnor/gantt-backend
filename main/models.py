@@ -7,6 +7,9 @@ class Organization(models.Model):
     color = models.CharField(max_length=20)
     order = models.IntegerField()
 
+    def __str__():
+        return f"{self.name}"
+
 
 class Event(models.Model):
     id = models.IntegerField(primary_key=True)   
@@ -14,3 +17,6 @@ class Event(models.Model):
     org = models.ForeignKey(Organization, related_name='events', on_delete=models.CASCADE)
     start = models.DateField()
     end = models.DateField()
+
+    def __str__():
+        return f"{self.name}, {self.org}, {self.start}-{self.end}"
