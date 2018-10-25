@@ -13,7 +13,7 @@ class Organization(models.Model):
 
 class Event(models.Model):
     id = models.IntegerField(primary_key=True)   
-    name = models.CharField(max_length=30, unique=True)
+    name = models.CharField(max_length=30, blank=True, null=True)
     org = models.ForeignKey(Organization, related_name='events', on_delete=models.CASCADE)
     start = models.DateField()
     end = models.DateField()
