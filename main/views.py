@@ -22,16 +22,18 @@ class OrgList(generics.ListCreateAPIView):
 
 @api_view(['POST'])
 def save_events(request):
+    print(request.data, "D\n\n\n")
     """Handle saving events"""
-    for event in request.data['events']:
+    for event in request.data:
+        print('\n\n', event, "E\n\n")
         Event.objects.update_or_create(
             id=event['id'],
             defaults={
                 'name': event['name'],
-                'start': dt.Date(2018, 10, 1),
-                # 'start': event['start'],
-                'end': dt.Date(2018, 10, 20)
-                # 'end': event['end']
+                # 'start': dt.Date(2018, 10, 1),
+                'start': event['start'],
+                # 'end': dt.Date(2018, 10, 20)
+                'end': event['end']
             }
         )
 
