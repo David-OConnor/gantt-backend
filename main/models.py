@@ -19,4 +19,4 @@ class Event(models.Model):
     end = models.DateField()
 
     def __str__():
-        return f"{self.name}, {self.org}, {self.start}-{self.end}"
+        return f"{self.name}, {self.org.name}, {self.start}-{self.end}"
