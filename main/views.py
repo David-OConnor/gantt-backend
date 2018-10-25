@@ -1,3 +1,5 @@
+import datetime as dt
+
 from django.shortcuts import render
 
 from rest_framework import generics, permissions
@@ -22,11 +24,15 @@ class OrgList(generics.ListCreateAPIView):
 def save_events(request):
     """Handle saving events"""
     for event in request.data['events']:
-        Event.objects.create(
+        Event.objects.update_or_create(
             id=event['id'],
-            name=event['name'],
-            start=event['start'],
-            end=event['end']
+            defaults={
+                'name': event['name'],
+                'start': dt.Date(2018, 10, 1),
+                # 'start': event['start'],
+                'end': dt.Date(2018, 10, 20)
+                # 'end': event['end']
+            }
         )
 
     return Response({'success': True})
